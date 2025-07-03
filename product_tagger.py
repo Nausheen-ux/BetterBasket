@@ -1,29 +1,40 @@
 import pandas as pd
+import re
 
-# Keyword-based tagger
-def tag_product(description):
-    desc = description.lower()
-    return {
-        "is_vegan": int("vegan" in desc),
-        "vegetarian": int("vegetarian" in desc or "meatless" in desc),
-        "dairy_free": int("dairy-free" in desc or "lactose free" in desc),
-        "gluten_free": int("gluten free" in desc),
-        "cruelty_free": int("cruelty free" in desc or "not tested on animals" in desc),
-        "eco_packaging": int("recyclable" in desc or "eco-friendly" in desc or "compostable" in desc or "biodegradable" in desc),
-        "upcycled": int("upcycled" in desc or "reused" in desc or "repurposed" in desc),
-        "local": int("locally" in desc or "regionally" in desc),
-        "new_brand": int("sustainable brand" in desc or "small business" in desc),
-        "premium": int("organic" in desc or "luxury" in desc or "premium" in desc)
-    }
+# Load product data
+INPUT_FILE = "walmart_products_contrasting.csv"
+OUTPUT_FILE = "tagged_walmart_products.csv"
 
-# Load data
-df = pd.read_csv("walmart_products_raw.csv")
+# Define tag keywords (expandable)
+TAG_KEYWORDS = {
+    "is_vegan": ["vegan", "plant-based"],
+    "cruelty_free": ["cruelty free", "cruelty-free"],
+    "dairy_free": ["dairy free", "dairy-free", "non-dairy"],
+    "gluten_free": ["gluten free", "gluten-free"],
+    "eco_packaging": ["eco packaging", "eco-friendly packaging", "biodegradable packaging"],
+    "upcycled": ["upcycled", "recycled ingredients"],
+    "local": ["local", "locally sourced", "farm sourced"],
+    "new_brand": ["independent", "emerging brand", "new brand"],
+    "organic": ["organic"],
+}
 
-# Apply tagging
-tags = df["description"].fillna("").apply(tag_product)
-tags_df = pd.DataFrame(tags.tolist())
-df_tagged = pd.concat([df, tags_df], axis=1)
+def tag_product_title(title: str) -> dict:
+    """Returns a dictionary of binary tags based on keywords found in the title."""
+    tags = {}
+    text = title.lower()
+    for tag, keywords in TAG_KEYWORDS.items():
+        tags[tag] = int(any(re.search(rf"\b{re.escape(keyword)}\b", text) for keyword in keywords))
+    return tags
 
-# Save
-df_tagged.to_csv("walmart_products_tagged.csv", index=False)
-print(f"✅ Tagged data saved to walmart_products_tagged.csv ({len(df_tagged)} rows)")
+def tag_products(input_file: str, output_file: str):
+    df = pd.read_csv(input_file)
+    print(f"📦 Loaded {len(df)} products from {input_file}")
+
+    tags_df = df["title"].fillna("").apply(tag_product_title).apply(pd.Series)
+    df_tagged = pd.concat([df, tags_df], axis=1)
+
+    df_tagged.to_csv(output_file, index=False)
+    print(f"✅ Saved tagged products to {output_file}")
+
+if __name__ == "__main__":
+    tag_products(INPUT_FILE, OUTPUT_FILE)
