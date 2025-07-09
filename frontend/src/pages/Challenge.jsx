@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import QuizBadgeDisplay from "../components/QuizBadge";
 
 const quizQuestions = [
   { id: 1, question: "Do you prefer vegan products?" },
@@ -34,7 +35,8 @@ console.log("Challenge component loaded");
     }
     setSubmitted(true);
     console.log("Quiz submitted:", responses);
-   
+    localStorage.setItem("quizResponses", JSON.stringify(responses));
+
   };
 
   return (
@@ -82,6 +84,10 @@ console.log("Challenge component loaded");
           🎉 Preferences saved! We’ll show you greener options.
         </p>
       )}
+
+      {submitted && <QuizBadgeDisplay />}
+
+
     </div>
   );
 }
