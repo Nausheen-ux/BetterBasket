@@ -9,7 +9,7 @@ export default function Hero(){
         <p className="text-green-700 text-lg max-w-xl mb-6">
           BetterBasket helps you make eco-friendly grocery choices. Take the Eco Quiz and earn rewards for choosing greener alternatives!
         </p>
-        <a href="/quiz">
+        <a href="/challenge">
           <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-md transition">
             Take the Eco Quiz
           </button>
