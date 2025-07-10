@@ -17,7 +17,7 @@ export default function Navbar() {
       </div>
       <div className="flex items-center space-x-6 text-sm sm:text-base">
   <Link to="/" className="hover:text-green-600">Home</Link>
-  <Link to="/quiz" className="hover:text-green-600">Eco Quiz</Link>
+  <Link to="/challenge" className="hover:text-green-600">Eco Quiz</Link>
   <Link to="/cart" className="hover:text-green-600 flex items-center gap-1">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
