@@ -28,16 +28,34 @@ console.log("Challenge component loaded");
     setResponses(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = () => {
-    if (Object.keys(responses).length !== quizQuestions.length) {
-      alert("Please answer all questions!");
-      return;
-    }
-    setSubmitted(true);
-    console.log("Quiz submitted:", responses);
-    localStorage.setItem("quizResponses", JSON.stringify(responses));
+  const handleSubmit = async () => {
+if (Object.keys(responses).length !== quizQuestions.length) {
+alert("Please answer all questions!");
+return;
+}
 
-  };
+try {
+const res = await fetch("http://localhost:5000/api/quiz", {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+},
+body: JSON.stringify({ responses }), // send inside an object
+});
+
+if (!res.ok) {
+  const errorData = await res.json();
+  throw new Error(errorData?.error || "Failed to save quiz");
+}
+
+setSubmitted(true);
+console.log("Quiz submitted:", responses);
+localStorage.setItem("quizResponses", JSON.stringify(responses));
+} catch (error) {
+console.error("Error submitting quiz:", error);
+alert("Error submitting quiz: " + error.message);
+}
+};
 
   return (
     <div className="p-8 max-w-3xl mx-auto bg-green-50 rounded-lg shadow-md">
