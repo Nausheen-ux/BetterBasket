@@ -28,7 +28,7 @@ console.log("Challenge component loaded");
     setResponses(prev => ({ ...prev, [id]: value }));
   };
 
-const handleSubmit = async () => {
+  const handleSubmit = async () => {
 if (Object.keys(responses).length !== quizQuestions.length) {
 alert("Please answer all questions!");
 return;
@@ -56,7 +56,6 @@ console.error("Error submitting quiz:", error);
 alert("Error submitting quiz: " + error.message);
 }
 };
-
 
   return (
     <div className="p-8 max-w-3xl mx-auto bg-green-50 rounded-lg shadow-md">
