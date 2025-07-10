@@ -1,4 +1,8 @@
 import React from "react";
+import GreenScore from "../components/GreenScore";
+
+
+
 
 export default function Cart() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -34,6 +38,8 @@ export default function Cart() {
               </div>
             </div>
           ))}
+
+          <GreenScoreDisplay cartItems={cartItems} />
 
           <div className="border-t pt-4 mt-4 flex justify-between text-lg font-semibold">
             <span>Total:</span>
