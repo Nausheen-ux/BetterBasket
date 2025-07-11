@@ -1,8 +1,18 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { addOrUpdateCart, getCart } = require("../controllers/cartController");
+const CartItem = require('../models/cart');
 
-router.post("/", addOrUpdateCart);
-router.get("/:userId", getCart);
+// POST /api/cart
+router.post('/', async (req, res) => {
+try {
+const { productId, name, price, quantity, tags } = req.body;
+const newItem = new CartItem({ productId, name, price, quantity, tags });
+await newItem.save();
+res.status(201).json({ message: 'Cart item saved to DB' });
+} catch (err) {
+console.error('Error saving cart item:', err);
+res.status(500).json({ error: 'Failed to save cart item' });
+}
+});
 
 module.exports = router;
