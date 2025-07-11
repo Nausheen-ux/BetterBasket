@@ -15,7 +15,7 @@ export default function Navbar() {
       </div>
       <div className="space-x-6 text-sm sm:text-base">
         <Link to="/" className="hover:text-green-600">Home</Link>
-        <Link to="/quiz" className="hover:text-green-600">Eco Quiz</Link>
+        <Link to="/challenge" className="hover:text-green-600">Eco Quiz</Link>
         <Link to="/cart" className="hover:text-green-600">Cart</Link>
         <Link to="/profile" className="hover:text-green-600">Profile</Link>
       </div>

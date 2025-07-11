@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 export default function ProductCard({ product }) {
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(0)
 
   const increaseQty = () => setQuantity(prev => prev + 1)
   const decreaseQty = () => {
-    if (quantity > 1) setQuantity(prev => prev - 1)
+    if (quantity > 0) setQuantity(prev => prev - 1)
   }
 
   const handleAddToCart = () => {
@@ -34,7 +34,9 @@ export default function ProductCard({ product }) {
 
       {/* Add to Cart */}
       <button
-        onClick={handleAddToCart}
+        onClick={handleAddToCart} 
+
+        
         className="mt-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded"
       >
         Add to Cart

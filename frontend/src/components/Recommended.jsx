@@ -9,7 +9,7 @@ export default function Recommended() {
     { name: "Organic Apples", price: 120, tag: "eco", img: appleImg },
     { name: "Almond Milk", price: 90, tag: "vegan", img: milkImg },
     { name: "Whole Wheat Bread", price: 60, tag: "healthy", img: breadImg },
-    { name : "Glutten free Crackers", price: 120, tag:"gluten free", img:crackerImg}
+    { name : "Glutten Free Crackers", price: 120, tag:"gluten free", img:crackerImg}
   ]
 
   return (
