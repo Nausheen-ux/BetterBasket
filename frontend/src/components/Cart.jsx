@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import GreenScore from "../components/GreenScore";
 
 
@@ -83,7 +83,7 @@ const totalPrice = cartItems.reduce(
               onClick={() => removeItem(index)}
               className="ml-auto bg-red-500 text-white px-2 py-1 rounded"
             >
-
+              🗑 Remove
             </button>
           </div>
 
@@ -100,7 +100,7 @@ const totalPrice = cartItems.reduce(
         </div>
       ))}
 
-          <GreenScoreDisplay cartItems={cartItems} />
+          {/* <GreenScoreDisplay cartItems={cartItems} /> */}
 
          <div className="border-t pt-4 mt-4 flex justify-between text-lg font-semibold">
         <span>Total:</span>
@@ -111,7 +111,7 @@ const totalPrice = cartItems.reduce(
         onClick={clearCart}
         className="mt-6 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded"
       >
-
+        🧹 Clear Cart
       </button>
     </div>
   )}
