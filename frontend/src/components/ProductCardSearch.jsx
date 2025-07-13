@@ -18,16 +18,9 @@ export default function ProductCard({ product }) {
   const satisfiedTags = Object.entries(product)
     .filter(([key, value]) =>
       [
-        "vegan",
-        "cruelty_free",
-        "organic",
-        "recyclable_packaging",
-        "carbon_neutral",
-        "non_gmo",
-        "fair_trade",
-        "sustainably_sourced",
-        "biodegradable",
-        "plastic_free"
+        "vegan", "cruelty_free", "organic", "recyclable_packaging",
+        "carbon_neutral", "non_gmo", "fair_trade",
+        "sustainably_sourced", "biodegradable", "plastic_free"
       ].includes(key) && value
     )
     .map(([key]) => key.replace(/_/g, " "));
@@ -61,96 +54,49 @@ export default function ProductCard({ product }) {
         )}
       </div>
 
-      {/* Rating */}
-      <div className="flex items-center text-sm mt-1">
-        <div className="flex text-yellow-500">
-          {Array.from({ length: 5 }, (_, i) => (
-            <StarIcon
-              key={i}
-              className={`h-4 w-4 ${
-                i < Math.round(product.rating)
-                  ? "fill-current"
-                  : "text-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-        <span className="ml-2 text-gray-500">({product.review_count})</span>
-      </div>
-
-      {/* Price */}
-      <div className="mt-2">
-        <span className="text-green-700 font-bold">
-          ${product.price.toFixed(2)}
-        </span>
-        {product.discount && (
-          <>
-            <span className="ml-2 text-sm text-gray-500 line-through">
-              ${product.original_price.toFixed(2)}
-            </span>
-            <span className="ml-2 text-sm text-red-600">{product.discount}</span>
-          </>
-        )}
-      </div>
-
-      {/* Tags + Circle */}
-      <div className="mt-4 flex justify-between items-start min-h-[88px]">
-        <div className="text-xs text-green-800 w-3/4">
-          <div className="flex flex-wrap gap-1 min-h-[40px]">
-            {satisfiedTags.slice(0, 2).map((tag, i) => (
-              <span
+      {/* Rating + Price + Green Score */}
+      <div className="flex justify-between items-center mt-2">
+        <div className="flex flex-col">
+          <div className="flex text-yellow-500">
+            {Array.from({ length: 5 }, (_, i) => (
+              <StarIcon
                 key={i}
-                className="bg-green-100 px-2 py-0.5 rounded-full text-[11px] font-medium leading-tight capitalize inline-block"
-              >
-                {tag}
-              </span>
+                className={`h-4 w-4 ${i < Math.round(product.rating) ? "fill-current" : "text-gray-300"}`}
+              />
             ))}
-            {satisfiedTags.length > 2 && (
-              <details className="ml-1 cursor-pointer">
-                <summary className="text-green-600 font-medium hover:underline">
-                  + more
-                </summary>
-                <div className="flex flex-wrap gap-1 mt-2">
-                  {satisfiedTags.slice(2).map((tag, i) => (
-                    <span
-                      key={i}
-                      className="bg-green-50 border border-green-300 px-3 py-1 rounded-full text-green-700 font-medium capitalize"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </details>
+          </div>
+          <span className="text-sm text-gray-500">({product.review_count})</span>
+          <div className="mt-1">
+            <span className="text-green-700 font-bold">${product.price.toFixed(2)}</span>
+            {product.discount && (
+              <>
+                <span className="ml-2 text-sm text-gray-500 line-through">
+                  ${product.original_price.toFixed(2)}
+                </span>
+                <span className="ml-2 text-sm text-red-600">{product.discount}</span>
+              </>
             )}
           </div>
         </div>
 
-        {/* Green Score */}
-        <div className="w-14 h-14 self-start relative shrink-0 ml-2">
-          <svg className="transform -rotate-90" width="56" height="56">
+        {/* Green Score Circle */}
+        <div className="w-16 h-16 relative shrink-0">
+          <svg className="transform -rotate-90" width="64" height="64">
             <circle
-              cx="28"
-              cy="28"
-              r="24"
+              cx="32"
+              cy="32"
+              r="28"
               stroke="#e5e7eb"
               strokeWidth="4"
               fill="none"
             />
             <circle
-              cx="28"
-              cy="28"
-              r="24"
-              stroke={
-                product.green_score
-                  ? getGreenColor(product.green_score)
-                  : "#f87171"
-              }
+              cx="32"
+              cy="32"
+              r="28"
+              stroke={product.green_score ? getGreenColor(product.green_score) : "#f87171"}
               strokeWidth="4"
-              strokeDasharray={
-                product.green_score
-                  ? `${(product.green_score / 100) * 150.72} 150.72`
-                  : "0 150.72"
-              }
+              strokeDasharray={product.green_score ? `${(product.green_score / 100) * 175.93} 175.93` : "0 175.93"}
               strokeLinecap="round"
               fill="none"
             />
@@ -158,23 +104,40 @@ export default function ProductCard({ product }) {
         </div>
       </div>
 
+      {/* Tags */}
+      <div className="mt-4 text-xs text-green-800 min-h-[40px]">
+        <div className="flex flex-wrap gap-1">
+          {satisfiedTags.slice(0, 2).map((tag, i) => (
+            <span
+              key={i}
+              className="bg-green-100 px-2 py-0.5 rounded-full text-[11px] font-medium leading-tight capitalize"
+            >
+              {tag}
+            </span>
+          ))}
+          {satisfiedTags.length > 2 && (
+            <details className="ml-1 cursor-pointer">
+              <summary className="text-green-600 font-medium hover:underline">+ more</summary>
+              <div className="flex flex-wrap gap-1 mt-2">
+                {satisfiedTags.slice(2).map((tag, i) => (
+                  <span
+                    key={i}
+                    className="bg-green-50 border border-green-300 px-3 py-1 rounded-full text-green-700 font-medium capitalize"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </details>
+          )}
+        </div>
+      </div>
+
       {/* Quantity Selector */}
       <div className="flex items-center mt-4 space-x-2">
-        <button
-          onClick={decreaseQty}
-          className="bg-green-100 px-2 py-1 rounded text-green-700 text-xl"
-        >
-          −
-        </button>
-        <span className="px-3 py-1 border rounded text-green-800 font-medium">
-          {quantity}
-        </span>
-        <button
-          onClick={increaseQty}
-          className="bg-green-100 px-2 py-1 rounded text-green-700 text-xl"
-        >
-          +
-        </button>
+        <button onClick={decreaseQty} className="bg-green-100 px-2 py-1 rounded text-green-700 text-xl">−</button>
+        <span className="px-3 py-1 border rounded text-green-800 font-medium">{quantity}</span>
+        <button onClick={increaseQty} className="bg-green-100 px-2 py-1 rounded text-green-700 text-xl">+</button>
       </div>
 
       {/* Add to Cart */}

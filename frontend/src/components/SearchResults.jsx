@@ -28,6 +28,7 @@ export default function SearchResults({ products }) {
     if (sortBy === "price-desc") return b.price - a.price;
     if (sortBy === "rating") return b.rating - a.rating;
     if (sortBy === "popularity") return b.review_count - a.review_count;
+    if (sortBy === "green-score") return b.green_score - a.green_score;
     return 0;
   });
 
@@ -63,6 +64,7 @@ export default function SearchResults({ products }) {
           <option value="price-desc">Price: High to Low</option>
           <option value="rating">Rating</option>
           <option value="popularity">Popularity</option>
+          <option value="green-score">Green Score</option>
         </select>
       </div>
 
