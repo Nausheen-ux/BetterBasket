@@ -1,5 +1,6 @@
 [
   {
+    "_id": "kettle-brand-sea-salt-chips",
     "name": "Kettle Brand Sea Salt Chips",
     "brand": "Kettle",
     "description": "Crunchy kettle-cooked potato chips with sea salt.",
@@ -23,9 +24,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 60,
-    "image": "/assets/products/kettle.jpg"
+    "image": "/assets/products/kettle.jpg",
+    "search_terms": ["chips", "crisps", "wafers", "sea salt"]
   },
   {
+    "_id": "doritos-nacho-cheese",
     "name": "Doritos Nacho Cheese",
     "brand": "Doritos",
     "description": "Bold flavor cheesy tortilla chips. Classic favorite.",
@@ -49,9 +52,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 0,
-    "image": "/assets/products/doritos.jpg"
+    "image": "/assets/products/doritos.jpg",
+    "search_terms": ["chips", "crisps", "nacho", "cheese", "tortilla"]
   },
   {
+    "_id": "lays-classic-chips",
     "name": "Lay’s Classic Chips",
     "brand": "Lay’s",
     "description": "Crispy, lightly salted chips made with simple ingredients.",
@@ -75,9 +80,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 20,
-    "image": "/assets/products/lays.jpg"
+    "image": "/assets/products/lays.jpg",
+    "search_terms": ["chips", "crisps", "wafers", "classic"]
   },
   {
+    "_id": "terra-root-veggie-chips",
     "name": "Terra Root Veggie Chips",
     "brand": "Terra",
     "description": "A medley of earthy root vegetables in crisp chip form.",
@@ -101,9 +108,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 80,
-    "image": "/assets/products/terra.jpg"
+    "image": "/assets/products/terra.jpg",
+    "search_terms": ["chips", "crisps", "veggie", "root"]
   },
   {
+    "_id": "popchips-bbq",
     "name": "Popchips BBQ",
     "brand": "Popchips",
     "description": "Air-popped BBQ potato snacks with full flavor and crunch.",
@@ -127,9 +136,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 60,
-    "image": "/assets/products/popchips.jpg"
+    "image": "/assets/products/popchips.jpg",
+    "search_terms": ["chips", "bbq", "crisps", "snacks"]
   },
   {
+    "_id": "jacksons-sweet-potato-chips",
     "name": "Jackson’s Sweet Potato Chips",
     "brand": "Jackson’s",
     "description": "Kettle cooked sweet potatoes in avocado oil.",
@@ -153,9 +164,11 @@
     "biodegradable": false,
     "plastic_free": true,
     "green_score": 90,
-    "image": "/assets/products/jacksons.jpg"
+    "image": "/assets/products/jacksons.jpg",
+    "search_terms": ["chips", "sweet potato", "crisps", "wafers"]
   },
   {
+    "_id": "late-july-jalapeno-lime-chips",
     "name": "Late July Jalapeño Lime Chips",
     "brand": "Late July",
     "description": "Zesty organic tortilla chips with jalapeño lime kick.",
@@ -179,9 +192,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 70,
-    "image": "/assets/products/latejuly.jpg"
+    "image": "/assets/products/latejuly.jpg",
+    "search_terms": ["chips", "jalapeno", "lime", "tortilla"]
   },
   {
+    "_id": "siete-sea-salt-chips",
     "name": "Siete Sea Salt Chips",
     "brand": "Siete",
     "description": "Grain-free tortilla chips made with avocado oil.",
@@ -205,9 +220,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 70,
-    "image": "/assets/products/siete.jpg"
+    "image": "/assets/products/siete.jpg",
+    "search_terms": ["chips", "sea salt", "tortilla", "grain-free"]
   },
   {
+    "_id": "hippeas-chickpea-puffs",
     "name": "Hippeas Chickpea Puffs",
     "brand": "Hippeas",
     "description": "Crunchy puffs made from chickpeas — vegan & protein-rich.",
@@ -231,9 +248,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 70,
-    "image": "/assets/products/hippeas.jpg"
+    "image": "/assets/products/hippeas.jpg",
+    "search_terms": ["puffs", "chickpea", "snack", "protein"]
   },
   {
+    "_id": "brads-crunchy-kale-chips",
     "name": "Brad’s Crunchy Kale Chips",
     "brand": "Brad’s Plant Based",
     "description": "Air-dried organic kale chips seasoned with garlic and vegan cheese.",
@@ -257,9 +276,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 80,
-    "image": "/assets/products/brads-kale.jpg"
+    "image": "/assets/products/brads-kale.jpg",
+    "search_terms": ["chips", "kale", "crisps", "organic"]
   },
   {
+    "_id": "food-should-taste-good-multigrain",
     "name": "Food Should Taste Good Multigrain",
     "brand": "FSTG",
     "description": "Wholesome multigrain tortilla chips with flax and seeds.",
@@ -283,9 +304,11 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 60,
-    "image": "/assets/products/fstg.jpg"
+    "image": "/assets/products/fstg.jpg",
+    "search_terms": ["chips", "multigrain", "tortilla", "snack"]
   },
   {
+    "_id": "barnana-plantain-chips",
     "name": "Barnana Plantain Chips",
     "brand": "Barnana",
     "description": "Sustainably sourced crispy plantain chips with sea salt.",
@@ -309,6 +332,7 @@
     "biodegradable": false,
     "plastic_free": false,
     "green_score": 70,
-    "image": "/assets/products/barnana.jpg"
+    "image": "/assets/products/barnana.jpg",
+    "search_terms": ["chips", "plantain", "tropical", "crisps"]
   }
 ]

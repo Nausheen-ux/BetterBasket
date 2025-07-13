@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductCardSearch from './ProductCardSearch';
 
-export default function SearchResults({ products }) {
+export default function SearchResults({ products, query = "" }) {
   const [sortBy, setSortBy] = useState("default");
   const [selectedTags, setSelectedTags] = useState([]);
 
@@ -20,7 +20,17 @@ export default function SearchResults({ products }) {
     const satisfied = Object.entries(product)
       .filter(([key, val]) => val === true)
       .map(([key]) => key.replace(/_/g, ' '));
-    return selectedTags.every(tag => satisfied.includes(tag));
+
+    const tagMatch = selectedTags.every(tag => satisfied.includes(tag));
+
+    // ✅ Match the query using product.search_terms
+    const queryMatch = query.trim() === "" 
+      ? true 
+      : product.search_terms?.some(term => 
+          term.toLowerCase().includes(query.toLowerCase())
+        );
+
+    return tagMatch && queryMatch;
   });
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {

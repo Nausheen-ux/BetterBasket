@@ -5,7 +5,7 @@ export default function Navbar({ query, setQuery }) {
   const navigate = useNavigate();
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && query.trim() !== '') {
       navigate('/search');
     }
   };
@@ -18,7 +18,7 @@ export default function Navbar({ query, setQuery }) {
 
       <div className="w-full sm:w-1/3">
         <input
-          type="text"
+          type="search"
           placeholder="Search for products..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}

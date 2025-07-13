@@ -11,8 +11,7 @@ export default function ProductCard({ product }) {
   };
 
   const handleAddToCart = () => {
-    addToCart(product, quantity);
-    alert(`Added ${quantity} x ${product.name} to cart!`);
+    addToCart(product, quantity); // ✅ alert is handled inside addToCart
   };
 
   const satisfiedTags = Object.entries(product)
