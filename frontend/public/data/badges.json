@@ -1,0 +1,26 @@
+[
+  {
+    "id": "green-newbie",
+    "label": "🌱 Green Newbie",
+    "points_required": 10,
+    "icon": "MdEco"
+  },
+  {
+    "id": "eco-advocate",
+    "label": "🌿 Earth Advocate",
+    "points_required": 50,
+    "icon": "MdEmojiNature"
+  },
+  {
+    "id": "planet-hero",
+    "label": "🌍 Planet Hero",
+    "points_required": 100,
+    "icon": "MdPublic"
+  },
+  {
+    "id": "eco-legend",
+    "label": "🏆 Eco Legend",
+    "points_required": 200,
+    "icon": "MdEmojiEvents"
+  }
+]

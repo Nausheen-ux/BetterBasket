@@ -1,9 +1,12 @@
 import { addToCart } from "../utils/cartUtils";
 
-export default function RecommendationCard({ from, to }) {
+export default function RecommendationCard({ from, to, updateCart }) {
   const handleAddRecommended = () => {
     addToCart(to, 1);
+    const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCart(updatedCart);
   };
+
 
   return (
     <div className="bg-white rounded-lg p-4 shadow-lg border-2 border-green-400 flex gap-4">

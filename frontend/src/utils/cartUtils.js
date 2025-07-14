@@ -1,10 +1,3 @@
-
-import { CalculateGreenPoints } from "../utils/CalculateGreenPoints";
-
-
-
-
-
 export function addToCart(product, quantity = 1) {
   const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -61,16 +54,7 @@ export function addToCart(product, quantity = 1) {
       console.error("❌ Error saving cart to DB:", err);
     });
 
-  // ✅ Custom toast-style alert
   const toast = document.createElement("div");
-
-const quizResponses = JSON.parse(localStorage.getItem("quizResponses")) || {};
-CalculateGreenPoints(existingCart, quizResponses);
-
-
-
-
-
   toast.textContent = `✅ Added ${quantity} x ${product.name} to cart!`;
   toast.className = `
     fixed bottom-6 left-1/2 transform -translate-x-1/2
