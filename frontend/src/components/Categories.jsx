@@ -5,7 +5,7 @@ import snacksImg from '../assets/categories/snacks.jpg'
 import grainsImg from '../assets/categories/staples.jpg'
 import instantImg from '../assets/categories/instant.jpg'
 import chickenImg from '../assets/categories/chicken.jpg'
-import masalaImg from '../assets/categories/Masala.jpg'
+import personalImg from '../assets/categories/personal.jpg'
 
 const categories = [
   { name: "Fruits and Vegetables", img: fruitImg },
@@ -15,7 +15,7 @@ const categories = [
   { name: "Grains", img: grainsImg },
   { name: "Instant Food", img: instantImg },
   { name: "Chicken, Meat and Fish", img: chickenImg },
-  { name: "Masala, Oil and More", img: masalaImg },
+  { name: "Personal Care and More", img: personalImg },
 ]
 
 export default function Categories() {

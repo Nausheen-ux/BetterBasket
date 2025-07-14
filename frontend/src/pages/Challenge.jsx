@@ -51,6 +51,7 @@ if (!res.ok) {
 setSubmitted(true);
 console.log("Quiz submitted:", responses);
 localStorage.setItem("quizResponses", JSON.stringify(responses));
+localStorage.setItem("ecoQuizTaken", "true"); 
 } catch (error) {
 console.error("Error submitting quiz:", error);
 alert("Error submitting quiz: " + error.message);
@@ -109,3 +110,4 @@ alert("Error submitting quiz: " + error.message);
     </div>
   );
 }
+
