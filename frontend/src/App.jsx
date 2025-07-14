@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Challenge from './pages/Challenge';
 import Cart from './components/Cart';
+import Profile from "./pages/Profile";
+import { CalculateGreenPoints } from "./utils/CalculateGreenPoints";
 import SearchResults from './components/SearchResults';
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/challenge" element={<Challenge />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/CalculateGreenPoints" element={<CalculateGreenPoints />} />
           <Route path="/search" element={<SearchResults products={filteredProducts} />} />
         </Routes>
       </div>
